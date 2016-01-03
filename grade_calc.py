@@ -1,10 +1,16 @@
 # Weighted Grade Calculator
 
+# Lists of grades of each type
 tests = []
 homework = [] 
 quizzes = []
-exams = []
 culture_reports = []
+
+# What percentage of the grade is what kind of assignment
+test_weight = 80
+homework_weight = 5
+quiz_weight = 5
+culture_report_weight = 10
 
 projected = 90 # if no grades are in a category, this value is assigned
 
@@ -41,16 +47,6 @@ else:
 
 sum = 0
 counter = 0
-for e in exams:
-	sum += e
-	counter+= 1
-if counter == 0:
-        av_exams = projected
-else:
-        av_exams = sum/counter
-
-sum = 0
-counter = 0
 for c in culture_reports:
 	sum += c
 	counter+= 1
@@ -59,5 +55,5 @@ if counter == 0:
 else:
         av_culture_reports = sum/counter
 
-grade = av_test_grades*30 + av_homework*30 + av_quizzes*10 + av_culture_reports*10 + av_exams*20
+grade = av_test_grades*test_weight + av_homework*homework_weight + av_quizzes*quiz_weight + av_culture_reports*culture_report_weight
 print grade/100		
